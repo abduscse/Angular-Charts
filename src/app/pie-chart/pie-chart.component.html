@@ -12,10 +12,15 @@
     </div>
     <div class="layout" style="margin-top:0px">
       <mat-card>
-        <div *ngFor="let label of pieChartLabels; let i = index">
-          <div class="pad" fxLayout="row">
-            <div fxFlex="30"><strong>{{label}}:</strong></div>
-            <div fxFlex>{{pieChartData[i]}}</div>
+        <div fxLayout="row" fxLayoutAlign="space-between end">
+          <div>
+            <div class="pad" *ngFor="let label of pieChartLabels; let i = index">
+              <span><strong>{{label}} : </strong></span>
+              <span>{{pieChartData[i]}}</span>
+            </div>
+          </div>
+          <div style="cursor:pointer;">
+            <i class="material-icons" (click)="randomize()" matTooltip="Randomize data">sync</i>
           </div>
         </div>
       </mat-card>

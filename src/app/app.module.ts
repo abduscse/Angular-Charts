@@ -16,6 +16,7 @@ import { PolarAreaChartComponent } from './polar-area-chart/polar-area-chart.com
 import { DynamicChartComponent } from './dynamic-chart/dynamic-chart.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatTableModule} from '@angular/material/table';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {MatTableModule} from '@angular/material/table';
     BrowserAnimationsModule,
     MatCardModule,
     FlexLayoutModule,
-    MatTableModule
+    MatTableModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

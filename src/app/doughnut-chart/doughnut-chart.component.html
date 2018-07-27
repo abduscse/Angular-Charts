@@ -2,20 +2,22 @@
   <div fxLayout="column" fxLayoutAlign="start start">
     <div class="layout">
       <mat-card>
-        <canvas baseChart 
-        [data]="doughnutChartData" 
-        [labels]="doughnutChartLabels" 
-        [chartType]="doughnutChartType" 
-        (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)"></canvas>
+        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
       </mat-card>
     </div>
     <div class="layout" style="margin-top:0px">
       <mat-card>
-        <div *ngFor="let label of doughnutChartLabels; let i = index">
-          <div class="pad" fxLayout="row">
-            <div  fxFlex="30"><strong>{{label}}:</strong></div>
-            <div fxFlex>{{doughnutChartData[i]}}</div>
+        <div fxLayout="row" fxLayoutAlign="space-between end">
+          <div>
+            <div class="pad" *ngFor="let label of doughnutChartLabels; let i = index">
+              <span><strong>{{label}} : </strong></span>
+              <span>{{doughnutChartData[i]}}</span>
+            </div>
+
+          </div>
+          <div style="cursor:pointer;">
+            <i class="material-icons" (click)="randomize()" matTooltip="Randomize data">sync</i>
           </div>
         </div>
       </mat-card>

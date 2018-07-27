@@ -38,4 +38,16 @@ export class PolarAreaChartComponent implements OnInit {
   public chartHovered(e: any): void {
     console.log(e);
   }
+  public randomize(): void {
+    const data = [
+      Math.round(Math.random() * 100),
+      Math.round(Math.random() * 100),
+      Math.round(Math.random() * 100),
+      Math.round(Math.random() * 100),
+      Math.round(Math.random() * 100)
+    ];
+    let clone = JSON.parse(JSON.stringify(this.polarAreaChartData));
+    clone = data;
+    this.polarAreaChartData = clone;
+  }
 }

@@ -2,27 +2,27 @@
   <div fxLayout="column" fxLayoutAlign="start start">
     <div class="layout">
       <mat-card>
-        <canvas baseChart 
-        [datasets]="lineChartData" 
-        [labels]="lineChartLabels" 
-        [options]="lineChartOptions" 
-        [colors]="lineChartColors"
-        [legend]="lineChartLegend" 
-        [chartType]="lineChartType" 
-        (chartHover)="chartHovered($event)" 
-        (chartClick)="chartClicked($event)"></canvas>
+        <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
+          [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
       </mat-card>
     </div>
     <div class="layout" style="margin-top:0px">
       <mat-card>
-        <table class="table table-responsive table-condensed">
-          <tr>
-            <td *ngFor="let label of lineChartLabels"><strong>{{label}}</strong></td>
-          </tr>
-          <tr *ngFor="let d of lineChartData">
-            <td *ngFor="let label of lineChartLabels; let j=index">{{d.data[j]}}</td>
-          </tr>
-        </table>
+        <div fxLayout="row" fxLayoutAlign="space-between end">
+          <div>
+            <table class="table table-responsive table-condensed">
+              <tr>
+                <td *ngFor="let label of lineChartLabels"><strong>{{label}}</strong></td>
+              </tr>
+              <tr *ngFor="let d of lineChartData">
+                <td *ngFor="let label of lineChartLabels; let j=index">{{d.data[j]}}</td>
+              </tr>
+            </table>
+          </div>
+          <div style="cursor:pointer;">
+            <i class="material-icons" (click)="randomize()" matTooltip="Randomize data">sync</i>
+          </div>
+        </div>
       </mat-card>
     </div>
   </div>

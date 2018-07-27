@@ -21,14 +21,21 @@
     </div>
     <div class="layout" style="margin-top:0px">
       <mat-card>
-        <table class="table table-responsive table-condensed">
-          <tr>
-            <td *ngFor="let label of barChartLabels"><strong>{{label}}</strong></td>
-          </tr>
-          <tr *ngFor="let d of barChartData">
-            <td *ngFor="let data of d.data; let j=index">{{d.data[j]}}</td>
-          </tr>
-        </table>
+        <div fxLayout="row" fxLayoutAlign="space-between end">
+          <div>
+            <table class="table table-responsive table-condensed">
+              <tr>
+                <td *ngFor="let label of barChartLabels"><strong>{{label}}</strong></td>
+              </tr>
+              <tr *ngFor="let d of barChartData">
+                <td *ngFor="let data of d.data; let j=index">{{d.data[j]}}</td>
+              </tr>
+            </table>
+          </div>
+          <div style="cursor:pointer;">
+            <i class="material-icons" (click)="randomize()" matTooltip="Randomize data">sync</i>
+          </div>
+        </div>
       </mat-card>
     </div>
   </div>

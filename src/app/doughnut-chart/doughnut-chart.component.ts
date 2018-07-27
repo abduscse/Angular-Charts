@@ -25,4 +25,14 @@ export class DoughnutChartComponent implements OnInit {
     console.log(e);
   }
 
+  public randomize(): void {
+    const data = [
+      Math.round(Math.random() * 100),
+      Math.round(Math.random() * 100),
+      Math.round(Math.random() * 100)
+    ];
+    let clone = JSON.parse(JSON.stringify(this.doughnutChartData));
+    clone = data;
+    this.doughnutChartData = clone;
+  }
 }

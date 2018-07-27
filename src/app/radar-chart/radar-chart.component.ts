@@ -29,4 +29,15 @@ export class RadarChartComponent implements OnInit {
     console.log(e);
   }
 
+    public randomize(): void {
+    const _radarChartData: Array<any> = new Array(this.radarChartData.length);
+    for (let i = 0; i < this.radarChartData.length; i++) {
+      _radarChartData[i] = { data: new Array(this.radarChartData[i].data.length), label: this.radarChartData[i].label };
+      for (let j = 0; j < this.radarChartData[i].data.length; j++) {
+        _radarChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
+      }
+    }
+    this.radarChartData = _radarChartData;
+  }
+
 }

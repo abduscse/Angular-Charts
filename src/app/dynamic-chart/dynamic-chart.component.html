@@ -29,14 +29,26 @@
     </div>
     <div style="margin-top:10px;">
       <mat-card class="table">
-         <table> 
-          <tr>
-            <td *ngFor="let label of lineChartLabels"><strong>{{label}}</strong></td>
-          </tr>
-          <tr *ngFor="let dataObj of lineChartData">
-            <td *ngFor="let data of dataObj">{{data}}</td>
-          </tr>
-        </table>
+        <div fxLayout="row" fxLayoutAlign="space-between end">
+          <div>
+            <table>
+              <tr>
+                <td *ngFor="let label of lineChartLabels"><strong>{{label}}</strong></td>
+              </tr>
+              <tr *ngFor="let dataObj of lineChartData">
+                <td *ngFor="let data of dataObj">{{data}}</td>
+              </tr>
+            </table>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="start end">
+            <div style="cursor:pointer;">
+              <i class="material-icons" (click)="flipType1()" matTooltip="Flip chart">flip</i>
+            </div>
+            <div style="cursor:pointer;">
+              <i class="material-icons" (click)="randomizeType1()" matTooltip="Randomize data">sync</i>
+            </div>
+          </div>
+        </div>
       </mat-card>
     </div>
   </div>
@@ -50,10 +62,22 @@
     <div>
       <div style="margin-top:10px">
         <mat-card class="table">
-          <div *ngFor="let label of pieChartLabels; let i = index">
-            <div class="pad" fxLayout="row">
-              <div fxFlex="30"><strong>{{label}}:</strong></div>
-              <div fxFlex>{{pieChartData[i]}}</div>
+          <div fxLayout="row" fxLayoutAlign="space-between end">
+            <div>
+              <div *ngFor="let label of pieChartLabels; let i = index">
+                <div class="pad" fxLayout="row">
+                  <span><strong>{{label}}:</strong></span>
+                  <span fxFlex>{{pieChartData[i]}}</span>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="start end">
+              <div style="cursor:pointer;">
+                <i class="material-icons" (click)="flipType2()" matTooltip="Flip chart">flip</i>
+              </div>
+              <div style="cursor:pointer;">
+                <i class="material-icons" (click)="randomizeType2()" matTooltip="Randomize data">sync</i>
+              </div>
             </div>
           </div>
         </mat-card>
