@@ -1,0 +1,24 @@
+<div fxLayout="row" fxLayoutAlign="space-around start">
+  <div fxLayout="column" fxLayoutAlign="start start">
+    <div class="layout">
+      <mat-card>
+        <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+      </mat-card>
+    </div>
+    <div class="layout" style="margin-top:0px">
+      <mat-card>
+        <div *ngFor="let label of pieChartLabels; let i = index">
+          <div class="pad" fxLayout="row">
+            <div fxFlex="30"><strong>{{label}}:</strong></div>
+            <div fxFlex>{{pieChartData[i]}}</div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

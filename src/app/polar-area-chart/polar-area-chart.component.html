@@ -1,0 +1,18 @@
+<div fxLayout="row" fxLayoutAlign="start start">
+  <div class="layout">
+    <mat-card>
+      <canvas baseChart [data]="polarAreaChartData" [labels]="polarAreaChartLabels" [legend]="polarAreaLegend" [chartType]="polarAreaChartType"
+        [options]="options" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+    </mat-card>
+  </div>
+  <div class="table" style="margin-left:0px">
+    <mat-card>
+      <div *ngFor="let label of polarAreaChartLabels; let i = index">
+        <div class="pad" fxLayout="row">
+          <div>{{label}}:</div>
+          <div><strong>{{polarAreaChartData[i]}}</strong></div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

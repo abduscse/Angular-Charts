@@ -1,0 +1,35 @@
+<!-- <div>
+  <div style="display: block">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+  </div>
+  <button (click)="randomize()">Update</button>
+</div> -->
+<div fxLayout="row" fxLayoutAlign="space-around start">
+  <div fxLayout="column" fxLayoutAlign="start start">
+    <div class="layout">
+      <mat-card>
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+          [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+      </mat-card>
+    </div>
+    <div class="layout" style="margin-top:0px">
+      <mat-card>
+        <table class="table table-responsive table-condensed">
+          <tr>
+            <td *ngFor="let label of barChartLabels"><strong>{{label}}</strong></td>
+          </tr>
+          <tr *ngFor="let d of barChartData">
+            <td *ngFor="let data of d.data; let j=index">{{d.data[j]}}</td>
+          </tr>
+        </table>
+      </mat-card>
+    </div>
+  </div>
+</div>
