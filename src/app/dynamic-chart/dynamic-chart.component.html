@@ -1,0 +1,87 @@
+<!-- <div class="col-md-6">
+ 
+    <canvas baseChart
+                [data]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+  </div>
+  <div class="col-md-6">
+    <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="pieChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+  </div>
+  <div class="col-md-12 text-center" style="margin-top: 10px;height: 50%">
+    <button (click)="randomizeType()" style="display: inline-block">Toggle</button>
+  </div> -->
+<div fxLayout="row" fxLayoutAlign="start start">
+  <div class="layout">
+    <div>
+      <mat-card>
+        <canvas baseChart [data]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [chartType]="lineChartType"
+          (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+      </mat-card>
+    </div>
+    <div style="margin-top:10px;">
+      <mat-card class="table">
+        <div fxLayout="row" fxLayoutAlign="space-between end">
+          <div>
+            <table>
+              <tr>
+                <td *ngFor="let label of lineChartLabels"><strong>{{label}}</strong></td>
+              </tr>
+              <tr *ngFor="let dataObj of lineChartData">
+                <td *ngFor="let data of dataObj">{{data}}</td>
+              </tr>
+            </table>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="start end">
+            <div style="cursor:pointer;">
+              <i class="material-icons" (click)="flipType1()" matTooltip="Flip chart">flip</i>
+            </div>
+            <div style="cursor:pointer;">
+              <i class="material-icons" (click)="randomizeType1()" matTooltip="Randomize data">sync</i>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <div class="layout" style="margin-left:0px">
+    <div>
+      <mat-card>
+        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+      </mat-card>
+    </div>
+    <div>
+      <div style="margin-top:10px">
+        <mat-card class="table">
+          <div fxLayout="row" fxLayoutAlign="space-between end">
+            <div>
+              <div *ngFor="let label of pieChartLabels; let i = index">
+                <div class="pad" fxLayout="row">
+                  <span><strong>{{label}}:</strong></span>
+                  <span fxFlex>{{pieChartData[i]}}</span>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="start end">
+              <div style="cursor:pointer;">
+                <i class="material-icons" (click)="flipType2()" matTooltip="Flip chart">flip</i>
+              </div>
+              <div style="cursor:pointer;">
+                <i class="material-icons" (click)="randomizeType2()" matTooltip="Randomize data">sync</i>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
